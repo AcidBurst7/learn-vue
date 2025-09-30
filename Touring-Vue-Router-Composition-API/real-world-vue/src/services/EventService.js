@@ -2,7 +2,7 @@ import axios from "axios"
 
 const apiClient = axios.create({
     baseURL: 'http://localhost:3000',
-    //    'https://my-json-server.typicode.com/AcidBurst7/learn-vue/events'
+    // baseURL: 'https://my-json-server.typicode.com/AcidBurst7/learn-vue',
     withCredentials: false,
     headers: {
       Accept: 'application/json',
