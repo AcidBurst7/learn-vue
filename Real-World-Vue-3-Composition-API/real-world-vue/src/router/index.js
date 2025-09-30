@@ -8,7 +8,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'events',
+      name: 'event-list',
       component: EventListView
     },
     {
@@ -18,8 +18,9 @@ const router = createRouter({
     },
     {
       path: '/events/:id',
-      name: 'event',
-      component: AboutView
+      name: 'event-details',
+      props: true,
+      component: EventDetailsView
     },
   ],
 })
