@@ -4,7 +4,6 @@ import EventLayout from '@/views/events/Layout.vue'
 import EventDetails from '@/views/events/Details.vue'
 import EventRegister from '@/views/events/Register.vue'
 import EventEdit from '@/views/events/Edit.vue'
-import AboutView from '@/views/AboutView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import NetworkError from '@/views/NetworkError.vue'
 
@@ -20,7 +19,7 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      component: AboutView
+      component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
     },
     {
       path: '/events/:id',
@@ -57,6 +56,13 @@ const router = createRouter({
       component: NetworkError
     }
   ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  }
 })
 
 export default router
